@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Trivia!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let correct = document.querySelector('.correct');
+            correct.addEventListener('click', function() {
+                correct.style.backgroundColor = 'green';
+                document.querySelector('#feedback1').innerHTML = 'Correct!';
+            });
+
+            let incorrects = document.querySelectorAll('.incorrect');
+            for (let i = 0; i < incorrects.length; i++) {
+                incorrects[i].addEventListener('click', function() {
+                    incorrects[i].style.backgroundColor = 'red';
+                    document.querySelector('#feedback1').innerHTML = 'Incorrect!';
+                });
+            }
+
+            document.querySelector('#check').addEventListener('click', function() {
+                let input = document.querySelector('input');
+                if (input.value.trim().toLowerCase() === 'went') {
+                    input.style.backgroundColor = 'green';
+                    document.querySelector('#feedback2').innerHTML = 'Correct!';
+                } else {
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#feedback2').innerHTML = 'Incorrect!';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>English Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>Which sentence uses the verb "to be" in the correct form?</h3>
+            <button class="incorrect">a) She are my sister.</button>
+            <button class="incorrect">b) They is happy.</button>
+            <button class="correct">c) He is a doctor.</button>
+            <button class="incorrect">d) I are a student.</button>
+            <p id="feedback1"></p>
+            <p><a href="answer1.html">Explanation</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Fill in the Blank</h2>
+            <hr>
+            <h3>Complete the sentence in the Simple Past: "Yesterday, I ____ (go) to the market."</h3>
+            <input type="text">
+            <button id="check">Check Answer</button>
+            <p id="feedback2"></p>
+            <p><a href="answer2.html">Explanation</a></p>
+        </div>
+    </div>
+</body>
+</html>
